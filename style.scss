@@ -61,7 +61,7 @@ cite {
     div {
         margin: 3vw;
 
-        .list {
+        .list {//kanske en mixin här också?
             border-radius: 10vw;
             padding: 3vw;
             h4 {
@@ -81,16 +81,6 @@ cite {
         width: 90%;
     }
 
-    //minska textstorleken på citaten
-    //det här är jag inte riktigt nöjd med. Gör länkarna mer separerade för klickbarhet
-    footer {
-        height: 35vw;
-        background: rgb(248, 193, 91);
-        margin: 3vw -6vw -6vw -6vw;
-        text-align: center;
-        line-height: 6vw;
-    }
-
     a:link{
         color: black;
         text-decoration: none;
@@ -99,44 +89,111 @@ cite {
     a:visited {
         color: rgb(7, 33, 88);
     }
+
+    footer {
+        height: 35vw;
+        background: rgb(248, 193, 91);
+        margin: 0vw -6vw -6vw -6vw;
+        padding-top: 1vw;//variabel?
+        text-align: center;
+   
+        a {
+            line-height: 6vw;
+        }
+    }
 }
 
 //Desktop
-//riktning: column. Centrerad. 
-//Bakgrund på container, typ ljusgrå
-//divar ska ha vit bakgrund
-//listorna ska ha bakgrundsfärg och rundade hörn. Ev sida vid sida? 
-
-
 @media (min-width: 601px){
     .header-mobile {
         display: none;
     }
 
+    br {
+        display: none;
+    }
+
+    hr {
+        display: none;
+    }
     header {
         width: 100%;
         height: 300px; //ändra även här
-        
     }
 
     .header-image {
         @include header-settings;
     }
 
-    //jag vill att alla div:ar ska vara centrerade vertikalt på sidan
     body {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: column;//gör en mixin för detta
         align-items: center;
         background: rgb(226, 221, 221);
+
+        .container {
+            display: flex;//mixin
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .content-wrapper {
+        background: white; 
+        width: 90%;
+        margin: 0% 15%;
     }
 
     article {
-        background: white;
-        width: 90%;
+        div {
+            margin: 5% 10%;
+        }
+
+        img {
+            width: 40%;//bestäm hur bilden ska ligga. Ska texten wrappas runt sidan?
+            margin: 1vw 0vw;
+        }
     }
 
+   
+    section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-bottom: 5%;
 
+        div {
+            width: 30%
+        }
+
+        .list{
+            border-radius: 5vw;
+            padding: 3vw;
+            line-height: 2vw;
+        }
+
+        li {
+            margin: 2vw 0vw;
+        }
+
+        .design {
+            background: #E6AA68; //variabel
+        }
+
+        .develop {
+            background: #D3E298;//variabel
+        }
+    }
+
+    
+    footer {
+        background: rgb(248, 193, 91); //variabel
+        height: 10vw;
+        width: 100%;
+        text-align: center;
+        padding-top: 1vw;
+
+        //separera länkarna och lägg till hover-effekt
+    }
 
 }

@@ -59,13 +59,6 @@ cite {
   hr {
     width: 90%;
   }
-  footer {
-    height: 35vw;
-    background: #f8c15b;
-    margin: 3vw -6vw -6vw -6vw;
-    text-align: center;
-    line-height: 6vw;
-  }
   a:link {
     color: black;
     text-decoration: none;
@@ -73,10 +66,26 @@ cite {
   a:visited {
     color: #072158;
   }
+  footer {
+    height: 35vw;
+    background: #f8c15b;
+    margin: 0vw -6vw -6vw -6vw;
+    padding-top: 1vw;
+    text-align: center;
+  }
+  footer a {
+    line-height: 6vw;
+  }
 }
 
 @media (min-width: 601px) {
   .header-mobile {
+    display: none;
+  }
+  br {
+    display: none;
+  }
+  hr {
     display: none;
   }
   header {
@@ -97,17 +106,71 @@ cite {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     background: #e2dddd;
   }
-  article {
+  body .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .content-wrapper {
     background: white;
     width: 90%;
+    margin: 0% 15%;
+  }
+  article div {
+    margin: 5% 10%;
+  }
+  article img {
+    width: 40%;
+    margin: 1vw 0vw;
+  }
+  section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    margin-bottom: 5%;
+  }
+  section div {
+    width: 30%;
+  }
+  section .list {
+    border-radius: 5vw;
+    padding: 3vw;
+    line-height: 2vw;
+  }
+  section li {
+    margin: 2vw 0vw;
+  }
+  section .design {
+    background: #E6AA68;
+  }
+  section .develop {
+    background: #D3E298;
+  }
+  footer {
+    background: #f8c15b;
+    height: 10vw;
+    width: 100%;
+    text-align: center;
+    padding-top: 1vw;
   }
 }
 /*# sourceMappingURL=style.css.map */
