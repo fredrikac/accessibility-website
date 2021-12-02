@@ -1,0 +1,142 @@
+//Mixins 
+@mixin heading-font {
+    font-family: 'Arvo', serif;
+} 
+@mixin paragraph-font {
+    font-family: 'DM Sans', sans-serif;
+} 
+
+@mixin header-settings {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+//Variabler
+
+
+
+//Styling för hela sidan oavsett skärmstorlek
+h1, h2, h3, h4{
+    @include heading-font;
+}
+
+.container {
+    @include paragraph-font;
+}
+
+cite {
+    font-style: italic;
+}
+
+
+//Mobile first 
+@media (max-width: 600px){
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        height: 100px; //ändra detta till vw eller kanske em? läs på!
+        width: 100%
+    }
+
+    .header-image {
+        display: none;
+    }
+
+    .header-mobile {
+        @include header-settings;
+    }
+    
+    blockquote {
+        font-size: 3vw;
+    }
+    
+    .cookie-pic {
+        width: 100%;
+        padding: 3vw 0vw 3vw 0vw; 
+    }
+
+    div {
+        margin: 3vw;
+
+        .list {
+            border-radius: 10vw;
+            padding: 3vw;
+            h4 {
+                text-align: center;
+            }
+        }
+
+        .design {
+            background: #E6AA68;
+        }
+
+        .develop {
+            background: #D3E298;
+        }
+    }
+    hr{
+        width: 90%;
+    }
+
+    //minska textstorleken på citaten
+    //det här är jag inte riktigt nöjd med. Gör länkarna mer separerade för klickbarhet
+    footer {
+        height: 35vw;
+        background: rgb(248, 193, 91);
+        margin: 3vw -6vw -6vw -6vw;
+        text-align: center;
+        line-height: 6vw;
+    }
+
+    a:link{
+        color: black;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: rgb(7, 33, 88);
+    }
+}
+
+//Desktop
+//riktning: column. Centrerad. 
+//Bakgrund på container, typ ljusgrå
+//divar ska ha vit bakgrund
+//listorna ska ha bakgrundsfärg och rundade hörn. Ev sida vid sida? 
+
+
+@media (min-width: 601px){
+    .header-mobile {
+        display: none;
+    }
+
+    header {
+        width: 100%;
+        height: 300px; //ändra även här
+        
+    }
+
+    .header-image {
+        @include header-settings;
+    }
+
+    //jag vill att alla div:ar ska vara centrerade vertikalt på sidan
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgb(226, 221, 221);
+    }
+
+    article {
+        background: white;
+        width: 90%;
+    }
+
+
+
+}
