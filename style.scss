@@ -11,7 +11,16 @@
     width: 100%;
     object-fit: cover;
 }
+
+@mixin footer-settings {
+     background: rgb(248, 193, 91);
+     text-align: center;
+     padding-top: 1vw;
+}
 //Variabler
+$design-background: #E6AA68;
+$develop-background: #D3E298;
+
 
 
 
@@ -26,6 +35,10 @@ h1, h2, h3, h4{
 
 cite {
     font-style: italic;
+}
+
+a {
+    text-decoration: none;
 }
 
 
@@ -70,11 +83,11 @@ cite {
         }
 
         .design {
-            background: #E6AA68;
+            background: $design-background;
         }
 
         .develop {
-            background: #D3E298;
+            background: $develop-background;
         }
     }
     hr{
@@ -83,7 +96,6 @@ cite {
 
     a:link{
         color: black;
-        text-decoration: none;
     }
 
     a:visited {
@@ -91,11 +103,9 @@ cite {
     }
 
     footer {
+        @include footer-settings;
         height: 35vw;
-        background: rgb(248, 193, 91);
         margin: 0vw -6vw -6vw -6vw;
-        padding-top: 1vw;//variabel?
-        text-align: center;
    
         a {
             line-height: 6vw;
@@ -103,19 +113,12 @@ cite {
     }
 }
 
-//Desktop
+//Desktop - behöver jag en media query för detta? googla mobile first och justera i enlighet. 
 @media (min-width: 601px){
     .header-mobile {
         display: none;
     }
 
-    br {
-        display: none;
-    }
-
-    hr {
-        display: none;
-    }
     header {
         width: 100%;
         height: 300px; //ändra även här
@@ -140,8 +143,12 @@ cite {
 
     .content-wrapper {
         background: white; 
-        width: 90%;
-        margin: 0% 15%;
+        width: 75%;
+        margin: 0% 25%;
+
+        hr {
+            width: 80%;
+        }
     }
 
     article {
@@ -150,8 +157,9 @@ cite {
         }
 
         img {
-            width: 40%;//bestäm hur bilden ska ligga. Ska texten wrappas runt sidan?
-            margin: 1vw 0vw;
+            width: 40%;
+            margin: 2vw 2vw 2vw 0vw;
+            float: left;
         }
     }
 
@@ -177,23 +185,40 @@ cite {
         }
 
         .design {
-            background: #E6AA68; //variabel
+            background: $design-background; 
         }
 
         .develop {
-            background: #D3E298;//variabel
+            background: $develop-background;
         }
     }
 
     
     footer {
-        background: rgb(248, 193, 91); //variabel
+        br {
+            display: none;
+        }
+        
+        @include footer-settings;
         height: 10vw;
         width: 100%;
-        text-align: center;
-        padding-top: 1vw;
 
-        //separera länkarna och lägg till hover-effekt
+        a {
+            background: white;
+            border-radius: 5vw;
+            padding: 1vw;
+            margin: 2vw;
+        }
+
+        a:hover {
+            background:rgb(204, 92, 0);
+            color: white;
+        }
+
+        a:visited {
+            color:rgb(7, 33, 88);
+        }
+
     }
 
 }
