@@ -2,11 +2,17 @@
 @mixin heading-font {
     font-family: 'Arvo', serif;
 } 
+
 @mixin paragraph-font {
     font-family: 'DM Sans', sans-serif;
 } 
 
-@mixin header-settings {
+@mixin header-height-width {
+    height: 20vw; 
+    width: 100%
+}
+
+@mixin header-image-settings {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -17,14 +23,36 @@
      text-align: center;
      padding-top: 1vw;
 }
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin flex-row-space-evenly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 //Variabler
 $design-background: #E6AA68;
 $develop-background: #D3E298;
-
+$visited-link: rgb(7, 33, 88);
 
 
 
 //Styling för hela sidan oavsett skärmstorlek
+body {
+    margin: 0;
+}
+
 h1, h2, h3, h4{
     @include heading-font;
 }
@@ -42,16 +70,14 @@ a {
 }
 
 
-//Mobile first 
+//MOBILE
 @media (max-width: 600px){
     .container {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
     }
 
     header {
-        height: 100px; //ändra detta till vw eller kanske em? läs på!
-        width: 100%
+      @include header-height-width;
     }
 
     .header-image {
@@ -59,11 +85,12 @@ a {
     }
 
     .header-mobile {
-        @include header-settings;
+        @include header-image-settings;
     }
     
     blockquote {
         font-size: 3vw;
+        margin: 1vw;
     }
     
     .cookie-pic {
@@ -79,6 +106,10 @@ a {
             padding: 3vw;
             h4 {
                 text-align: center;
+            }
+
+            li {
+                margin-bottom: 5vw;
             }
         }
 
@@ -99,45 +130,38 @@ a {
     }
 
     a:visited {
-        color: rgb(7, 33, 88);
+        color: $visited-link;
     }
 
     footer {
         @include footer-settings;
-        height: 35vw;
+        height: 10%;
         margin: 0vw -6vw -6vw -6vw;
-   
-        a {
-            line-height: 6vw;
-        }
+        padding-bottom: 6vw;
     }
 }
 
-//Desktop - behöver jag en media query för detta? googla mobile first och justera i enlighet. 
+//DESKTOP
 @media (min-width: 601px){
+
     .header-mobile {
         display: none;
     }
 
     header {
-        width: 100%;
-        height: 300px; //ändra även här
+        @include header-height-width;
     }
 
     .header-image {
-        @include header-settings;
+        @include header-image-settings;
     }
 
     body {
-        display: flex;
-        flex-direction: column;//gör en mixin för detta
-        align-items: center;
+        @include flex-column-center;
         background: rgb(226, 221, 221);
 
         .container {
-            display: flex;//mixin
-            flex-direction: column;
-            align-items: center;
+            @include flex-column-center;
         }
     }
 
@@ -165,23 +189,21 @@ a {
 
    
     section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        @include flex-row-space-evenly;
         margin-bottom: 5%;
 
         div {
-            width: 30%
+            width: 35%
         }
 
         .list{
             border-radius: 5vw;
             padding: 3vw;
-            line-height: 2vw;
-        }
 
-        li {
-            margin: 2vw 0vw;
+            li {
+                margin: 2vw 0vw;
+            }
+
         }
 
         .design {
@@ -200,25 +222,32 @@ a {
         }
         
         @include footer-settings;
-        height: 10vw;
+        @include flex-column-center;
+        justify-content: center;
+        height: 20%;
         width: 100%;
-
-        a {
-            background: white;
-            border-radius: 5vw;
-            padding: 1vw;
+        
+        div {
+            @include flex-row-space-evenly;
+            align-items: center;
+            width: 100%;
+            height: 100%;
             margin: 2vw;
-        }
 
-        a:hover {
-            background:rgb(204, 92, 0);
-            color: white;
+            a {
+                background: white;
+                border-radius: 5vw;
+                padding: 1vw;
+            }
+    
+            a:hover {
+                background:rgb(204, 92, 0);
+                color: white;
+            }
+    
+            a:visited {
+                color: $visited-link;
+            }
         }
-
-        a:visited {
-            color:rgb(7, 33, 88);
-        }
-
     }
-
 }

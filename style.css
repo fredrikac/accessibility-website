@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 h1, h2, h3, h4 {
   font-family: 'Arvo', serif;
 }
@@ -25,7 +29,7 @@ a {
             flex-direction: column;
   }
   header {
-    height: 100px;
+    height: 20vw;
     width: 100%;
   }
   .header-image {
@@ -39,6 +43,7 @@ a {
   }
   blockquote {
     font-size: 3vw;
+    margin: 1vw;
   }
   .cookie-pic {
     width: 100%;
@@ -53,6 +58,9 @@ a {
   }
   div .list h4 {
     text-align: center;
+  }
+  div .list li {
+    margin-bottom: 5vw;
   }
   div .design {
     background: #E6AA68;
@@ -73,11 +81,9 @@ a {
     background: #f8c15b;
     text-align: center;
     padding-top: 1vw;
-    height: 35vw;
+    height: 10%;
     margin: 0vw -6vw -6vw -6vw;
-  }
-  footer a {
-    line-height: 6vw;
+    padding-bottom: 6vw;
   }
 }
 
@@ -86,8 +92,8 @@ a {
     display: none;
   }
   header {
+    height: 20vw;
     width: 100%;
-    height: 300px;
   }
   .header-image {
     height: 100%;
@@ -150,14 +156,13 @@ a {
     margin-bottom: 5%;
   }
   section div {
-    width: 30%;
+    width: 35%;
   }
   section .list {
     border-radius: 5vw;
     padding: 3vw;
-    line-height: 2vw;
   }
-  section li {
+  section .list li {
     margin: 2vw 0vw;
   }
   section .design {
@@ -170,23 +175,53 @@ a {
     background: #f8c15b;
     text-align: center;
     padding-top: 1vw;
-    height: 10vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 20%;
     width: 100%;
   }
   footer br {
     display: none;
   }
-  footer a {
+  footer div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 2vw;
+  }
+  footer div a {
     background: white;
     border-radius: 5vw;
     padding: 1vw;
-    margin: 2vw;
   }
-  footer a:hover {
+  footer div a:hover {
     background: #cc5c00;
     color: white;
   }
-  footer a:visited {
+  footer div a:visited {
     color: #072158;
   }
 }
